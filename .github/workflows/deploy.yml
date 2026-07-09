@@ -1,0 +1,61 @@
+# Docs CI + GitHub Pages deploy.
+#
+# Pull requests: content parity against the frozen GitBook snapshot must hold
+# (scripts/verify-gitbook-parity.mjs) and the build must pass — Docusaurus
+# fails on broken links/anchors and on missing images referenced from docs.
+#
+# Push to master: build and publish to GitHub Pages via the official Pages
+# actions (Pages source must be set to "GitHub Actions").
+name: deploy
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Verify content parity with GitBook snapshot
+        run: node scripts/verify-gitbook-parity.mjs
+
+      - name: Build (fails on broken links/anchors)
+        run: npm run build
+
+      - name: Upload Pages artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

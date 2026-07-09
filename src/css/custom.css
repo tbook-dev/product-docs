@@ -1,0 +1,21 @@
+/**
+ * Minimal global styles. Visual style is intentionally allowed to differ
+ * from the original GitBook site; content parity is what is enforced.
+ */
+
+:root {
+  --ifm-color-primary: #2e6ad1;
+  --ifm-color-primary-dark: #2a5fbc;
+  --ifm-color-primary-darker: #275ab1;
+  --ifm-color-primary-darkest: #204a92;
+  --ifm-color-primary-light: #4278d6;
+  --ifm-color-primary-lighter: #4d80d8;
+  --ifm-color-primary-lightest: #6d96df;
+  --ifm-code-font-size: 95%;
+}
+
+/* Keep imported GitBook images from overflowing their column. */
+.markdown img {
+  max-width: 100%;
+  height: auto;
+}
