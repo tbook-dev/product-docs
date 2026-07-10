@@ -3,7 +3,9 @@
 TBook product documentation — migrated from the GitBook space
 [docs.tbook.com/tbook](https://docs.tbook.com/tbook) and now maintained here.
 
-Live site: **https://tbook-dev.github.io/product-docs/**
+Live site: **https://docs.tbook.com/tbook/** (URLs mirror the original
+GitBook space; `docs.tbook.com` is a CNAME to `tbook-dev.github.io` in
+Route 53, and the bare domain root redirects to `/tbook/`)
 
 ## How to edit the docs
 

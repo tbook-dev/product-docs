@@ -42,11 +42,24 @@ jobs:
       - name: Build (fails on broken links/anchors)
         run: npm run build
 
+      # The site lives at https://docs.tbook.com/tbook/ (baseUrl /tbook/) so
+      # every URL matches the original GitBook space. The Pages artifact root
+      # maps to the domain root, so nest the build under tbook/, serve the
+      # 404 from the root (GitHub Pages only reads /404.html), and redirect
+      # the bare domain root to /tbook/ like GitBook did.
+      - name: Package Pages artifact (site under /tbook/, root redirect)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          mkdir -p site/tbook
+          cp -R build/. site/tbook/
+          cp build/404.html site/404.html
+          cp .github/pages-root/index.html site/index.html
+
       - name: Upload Pages artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build
+          path: ./site
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'

@@ -11,8 +11,11 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://tbook-dev.github.io',
-  baseUrl: '/product-docs/',
+  // Custom domain: the Pages artifact nests the build under tbook/ (see
+  // .github/workflows/deploy.yml), so URLs mirror the original GitBook
+  // space exactly: https://docs.tbook.com/tbook/<page>.
+  url: 'https://docs.tbook.com',
+  baseUrl: '/tbook/',
 
   organizationName: 'tbook-dev',
   projectName: 'product-docs',
