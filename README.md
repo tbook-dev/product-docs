@@ -29,15 +29,14 @@ The content was imported verbatim from GitBook:
   and `static/img/` from that snapshot. Only sanctioned markup transforms are
   applied (GitBook hint/stepper templates, figure tags, internal links,
   heading anchors); body text is untouched.
-- `scripts/verify-gitbook-parity.mjs` — proves per-page zero-diff parity
-  between the snapshot and `docs/` modulo exactly those transforms. It runs
-  on every PR, so accidental drift from the migrated baseline is caught. Once
-  the team starts intentionally editing content here, delete the parity step
-  from the workflow (and optionally the scripts) — GitHub is the source of
-  truth from then on.
+- `scripts/verify-gitbook-parity.mjs` — proved per-page zero-diff parity
+  between the snapshot and `docs/` modulo exactly those transforms, and ran
+  in CI until intentional content editing began on 2026-07-10. **This repo
+  is the source of truth now**; the scripts and snapshot are kept only as a
+  historical record of what was migrated.
 
-Known upstream content warts kept verbatim for strict parity: two
-`mailto:undefined` links (in `architecture-of-wise` and the FAQ Telegram
-setup page) and one stray `[<br>](https://app.gitbook.com/...)` link
-(in `custom-off-chain-api-on-sui`) that exist in the original GitBook
-content.
+Post-migration content fixes (deliberate divergence from the GitBook
+original): removed two broken `mailto:undefined` links (in
+`architecture-of-wise` and the FAQ Telegram setup page) and one stray
+`[<br>](https://app.gitbook.com/...)` editor link (in
+`custom-off-chain-api-on-sui`).

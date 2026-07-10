@@ -43,5 +43,3 @@ Verification Failed
 * The response JSON format must strictly follow the above specification (fields: `code, status, message, isVerified`).
 * `isVerified` must return a boolean.
 * The `message` field is for internal use only and will not be exposed to end users.
-
-[<br>](https://app.gitbook.com/o/scu2aXjSpO2ppENNM7ag/s/jgGwRGPzwYqbsjiyed10/)

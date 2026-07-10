@@ -1,11 +1,14 @@
 # Docs CI + GitHub Pages deploy.
 #
-# Pull requests: content parity against the frozen GitBook snapshot must hold
-# (scripts/verify-gitbook-parity.mjs) and the build must pass — Docusaurus
-# fails on broken links/anchors and on missing images referenced from docs.
+# Pull requests: the build must pass — Docusaurus fails on broken
+# links/anchors and on missing images referenced from docs.
 #
 # Push to master: build and publish to GitHub Pages via the official Pages
 # actions (Pages source must be set to "GitHub Actions").
+#
+# The GitBook-parity gate was removed on 2026-07-10 when intentional content
+# editing began; this repo is the source of truth now. The scripts and the
+# frozen snapshot remain under scripts/ for historical reference.
 name: deploy
 
 on:
@@ -35,9 +38,6 @@ jobs:
           cache: npm
 
       - run: npm ci
-
-      - name: Verify content parity with GitBook snapshot
-        run: node scripts/verify-gitbook-parity.mjs
 
       - name: Build (fails on broken links/anchors)
         run: npm run build

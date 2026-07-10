@@ -7,7 +7,7 @@
 ![](/img/6v8McPpxHH3LHMmaIwSL.png)
 ![](/img/cuAlIjvjnL9mjqP4oo6F.png)
 
-### Add [`@tbook_sign_bot`](mailto:undefined) to the channels, set the bot as admin
+### Add `@tbook_sign_bot` to the channels, set the bot as admin
 
 ![](/img/roOM9dCt6FRgCpfpz73g.png)
 ![](/img/lgHZIaqUMPcFLEdYPkBj.png)

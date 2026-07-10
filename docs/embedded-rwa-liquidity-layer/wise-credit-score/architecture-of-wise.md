@@ -2,7 +2,7 @@
 
 ## WISE: Credit that You Own
 
-[WISE Credit](mailto:undefined) incorporates fundamental data dimensions to comprehensively evaluate a user's standing within the community. To put it short:
+WISE Credit incorporates fundamental data dimensions to comprehensively evaluate a user's standing within the community. To put it short:
 
 *WISE=Wealth+Identity+Social+Engagement*
 
