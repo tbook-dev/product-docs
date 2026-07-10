@@ -35,6 +35,18 @@ const config: Config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        // GitBook served the space root page at BOTH /tbook and
+        // /tbook/introduction/overview; our page lives at the root
+        // (slug: /), so keep the old deep link working.
+        redirects: [{from: '/introduction/overview', to: '/'}],
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
