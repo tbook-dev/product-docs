@@ -15,6 +15,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Architecture',
+      collapsible: false,
+      items: ['architecture/sbt-system-overview'],
+    },
+    {
+      type: 'category',
       label: 'Embedded RWA Liquidity Layer',
       collapsible: false,
       items: [
@@ -117,6 +123,9 @@ const sidebars: SidebarsConfig = {
       label: 'Developers',
       collapsible: false,
       items: [
+        'developers/sbt-claim-flow',
+        'developers/credentials-and-verification',
+        'developers/deployed-package-registry',
         'developers/custom-off-chain-api-on-sui',
         'developers/custom-off-chain-api-on-ton',
         'developers/loyalty-sbt-data-api-documentation',
