@@ -50,9 +50,12 @@ feeds WISE Score.
 - **`MoveAbort(..., 5)` = already claimed.** The frontend recovers by locating the user's
   existing SBT for that collection, finding its original mint transaction, and calling
   `/sui/sbt/claim/check` with it — so a double-claim attempt still reconciles to success.
-- **Config mismatch.** If the contract config the frontend loaded disagrees with the
-  deployed package, the mint aborts. An integrity guard (plan item P1-2) surfaces this as
-  a "config unavailable, retry" state instead of an opaque on-chain abort.
+- **Config mismatch.** The frontend validates the contract config it loaded (plan item
+  P1-2). A **malformed or missing-field** config throws `SbtConfigError` and the claim is
+  not attempted — the caller shows an error state rather than letting an opaque on-chain
+  abort happen. A **well-formed config whose `packageId` is not yet in the frontend's
+  known-package allowlist** is allowed through with a console warning (plan item R1), so a
+  newly-published package is not blocked until the frontend's allowlist is updated.
 
 ## EVM / BSC
 

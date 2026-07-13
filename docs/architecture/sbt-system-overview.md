@@ -54,18 +54,18 @@ Issuer creates SBT ──▶ User completes tasks (credentials) ──▶ User c
 Kept up to date as the optimization program lands. Legend: ✅ live · 🟡 in progress ·
 ⬜ planned · 🔒 waiting on a go/no-go decision.
 
-_Last updated: 2026-07-12_
+_Last updated: 2026-07-13_
 
 | Capability | Sui | TON | EVM/BSC | Notes |
 |---|---|---|---|---|
 | Issue SBT | ✅ | ✅ | ✅ | Sui is primary. |
 | Claim SBT | ✅ | ✅ | ✅ | |
 | WISE Score from SBT holdings | ✅ | ✅ | ✅ | |
-| Single deployed-package registry | ✅ | — | — | New: one source of truth + automated drift check. |
-| Automated package-drift guard (CI) | 🟡 | — | — | Script done & tested; wiring into CI. |
-| Backend PR test gate | 🟡 | — | — | Core-logic suite green; gate being enabled. |
-| Frontend CI + safe deploy | ⬜ | — | — | Planned. |
-| Contract publish runbook | 🟡 | — | — | Replacing ad-hoc manual steps. |
+| Single deployed-package registry | ✅ | — | — | One source of truth; drift-check verifies configs, Move source, backend copy, and chain. |
+| Automated package-drift guard (CI) | ✅ | — | — | Live. Compares registry against the live on-chain ModuleState (incl. the signer key). |
+| Backend PR test gate | ✅ | — | — | Live on PRs (common suite + all-module test-compile + secret scan). |
+| Frontend CI + safe deploy | 🟡 | — | — | CI (test + staging & prod build) live; env-isolated S3/CloudFront deploy still pending. |
+| Contract publish runbook | ✅ | — | — | `publish.sh` + `update_public_key.sh` + runbook + build CI. |
 | Credential system docs | ✅ | ✅ | ✅ | See *Developers → Credentials & Verification*. |
 | Product/architecture docs (this page) | ✅ | — | — | |
 

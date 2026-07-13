@@ -28,6 +28,11 @@ counts holdings across all live versions. See
 The registry also carries each package's `moduleStateId`, `adminCapId`, fee `receiverAddress`,
 the signing `publicKey` (mainnet v2), and the fee constants.
 
+> **Signer key note.** The mainnet signing key was rotated on-chain (via `update_public_key`)
+> after publish, so the live key is **not** the literal baked into the Move source `init`.
+> The registry records the live on-chain `ModuleState.public_key`, and the drift-check CI
+> verifies the two agree — see `tbook-sui-sbt/DEPLOYMENTS.md`.
+
 ## Who reads it
 
 | Consumer | Where |
