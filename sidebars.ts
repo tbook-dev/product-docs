@@ -21,6 +21,17 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Stablecoin Settlement & Save',
+      collapsible: false,
+      items: [
+        'stablecoin-settlement/overview',
+        'stablecoin-settlement/getting-started',
+        'stablecoin-settlement/api-reference',
+        'stablecoin-settlement/webhooks',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Embedded RWA Liquidity Layer',
       collapsible: false,
       items: [
