@@ -42,16 +42,22 @@ jobs:
       - name: Build (fails on broken links/anchors)
         run: npm run build
 
-      # The site lives at https://docs.tbook.com/tbook/ (baseUrl /tbook/) so
-      # every URL matches the original GitBook space. The Pages artifact root
-      # maps to the domain root, so nest the build under tbook/, serve the
-      # 404 from the root (GitHub Pages only reads /404.html), and redirect
-      # the bare domain root to /tbook/ like GitBook did.
-      - name: Package Pages artifact (site under /tbook/, root redirect)
+      - name: Build Settlement & Save site (fails on broken links/anchors)
+        run: npm run build:stable
+
+      # docs.tbook.com hosts two sibling Docusaurus sites: the product space
+      # at /tbook/ (baseUrl /tbook/, URLs matching the original GitBook
+      # space) and the Stablecoin Settlement & Save docs at /stable/
+      # (docusaurus.stable.config.ts). The Pages artifact root maps to the
+      # domain root, so nest each build under its path, serve the 404 from
+      # the root (GitHub Pages only reads /404.html), and redirect the bare
+      # domain root to /tbook/ like GitBook did.
+      - name: Package Pages artifact (/tbook/ + /stable/, root redirect)
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
-          mkdir -p site/tbook
+          mkdir -p site/tbook site/stable
           cp -R build/. site/tbook/
+          cp -R build-stable/. site/stable/
           cp build/404.html site/404.html
           cp .github/pages-root/index.html site/index.html
 

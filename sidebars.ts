@@ -23,12 +23,9 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Stablecoin Settlement & Save',
       collapsible: false,
-      items: [
-        'stablecoin-settlement/overview',
-        'stablecoin-settlement/getting-started',
-        'stablecoin-settlement/api-reference',
-        'stablecoin-settlement/webhooks',
-      ],
+      // The service's docs are a standalone space at /stable/ (see
+      // docusaurus.stable.config.ts); this page is the pointer.
+      items: ['stablecoin-settlement/index'],
     },
     {
       type: 'category',
