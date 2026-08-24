@@ -5,7 +5,9 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "start:stable": "docusaurus start --config docusaurus.stable.config.ts --port 3001",
     "build": "docusaurus build",
+    "build:stable": "docusaurus build --config docusaurus.stable.config.ts --out-dir build-stable",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "typecheck": "tsc",

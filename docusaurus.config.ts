@@ -42,7 +42,21 @@ const config: Config = {
         // GitBook served the space root page at BOTH /tbook and
         // /tbook/introduction/overview; our page lives at the root
         // (slug: /), so keep the old deep link working.
-        redirects: [{from: '/introduction/overview', to: '/'}],
+        redirects: [
+          {from: '/introduction/overview', to: '/'},
+          // The Settlement & Save pages moved to their own space at
+          // https://docs.tbook.com/stable/ — old deep links land on the
+          // pointer page, which links out.
+          {
+            from: [
+              '/stablecoin-settlement/overview',
+              '/stablecoin-settlement/getting-started',
+              '/stablecoin-settlement/api-reference',
+              '/stablecoin-settlement/webhooks',
+            ],
+            to: '/stablecoin-settlement',
+          },
+        ],
       },
     ],
   ],
@@ -76,6 +90,21 @@ const config: Config = {
           sidebarId: 'docs',
           position: 'left',
           label: 'Documentation',
+        },
+        {
+          type: 'dropdown',
+          label: 'Products',
+          position: 'right',
+          items: [
+            {
+              label: 'Settlement & Save Docs',
+              href: 'https://docs.tbook.com/stable/',
+            },
+            {
+              label: 'RWA Platform Docs',
+              href: 'https://rwa-docs.tbook.com/',
+            },
+          ],
         },
         {
           href: 'https://github.com/tbook-dev/product-docs',

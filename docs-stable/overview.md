@@ -1,6 +1,7 @@
 ---
 title: What is TBook Settlement & Save
 sidebar_position: 1
+slug: /
 ---
 
 # What is TBook Settlement & Save
