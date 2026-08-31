@@ -84,7 +84,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Tokenomics',
       collapsible: false,
-      items: ['tokenomics/tokenomics'],
+      items: ['tokenomics/tokenomics', 'tokenomics/book-token-contracts'],
     },
     {
       type: 'category',
