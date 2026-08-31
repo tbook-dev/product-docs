@@ -92,19 +92,14 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          type: 'dropdown',
-          label: 'Products',
+          href: 'https://docs.tbook.com/stable/',
+          label: 'Settlement & Save',
           position: 'right',
-          items: [
-            {
-              label: 'Settlement & Save Docs',
-              href: 'https://docs.tbook.com/stable/',
-            },
-            {
-              label: 'RWA Platform Docs',
-              href: 'https://rwa-docs.tbook.com/',
-            },
-          ],
+        },
+        {
+          href: 'https://rwa-docs.tbook.com/',
+          label: 'RWA Platform',
+          position: 'right',
         },
         {
           href: 'https://github.com/tbook-dev/product-docs',
