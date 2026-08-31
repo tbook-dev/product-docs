@@ -29,14 +29,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'RWA Platform',
-      collapsible: false,
-      // The service's docs live at rwa-docs.tbook.com (tbook-dev/tbook-docs
-      // repo); this page is the pointer.
-      items: ['rwa-platform/index'],
-    },
-    {
-      type: 'category',
       label: 'Embedded RWA Liquidity Layer',
       collapsible: false,
       items: [
